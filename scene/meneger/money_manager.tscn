@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bs6t51qp7j3s8"]
+
+[ext_resource type="Script" uid="uid://nf4w1d7br0oi" path="res://scene/meneger/money_manager.gd" id="1_3ygvw"]
+
+[node name="MoneyManager" type="Node" unique_id=1565406079]
+script = ExtResource("1_3ygvw")

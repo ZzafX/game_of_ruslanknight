@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dmyv736p58be0"]
+
+[ext_resource type="Script" uid="uid://dgifdupg66y7j" path="res://scene/meneger/spawner/enemy_spawner.gd" id="1_0jpma"]
+[ext_resource type="PackedScene" uid="uid://ch8u62aoo4hta" path="res://scene/game_objects/Orc/orc.tscn" id="2_ciet3"]
+
+[node name="enemy_spawner" type="Node" unique_id=5503220]
+script = ExtResource("1_0jpma")
+Orc_scene = ExtResource("2_ciet3")
+
+[node name="Timer" type="Timer" parent="." unique_id=2003577834]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

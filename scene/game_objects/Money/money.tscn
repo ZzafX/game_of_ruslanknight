@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://y365unu4o4yn"]
+
+[ext_resource type="Texture2D" uid="uid://we6l44vax21q" path="res://scene/game_objects/Money/Money.png" id="1_mstf0"]
+[ext_resource type="Script" uid="uid://cm1bcbrubmpyu" path="res://scene/game_objects/Money/money.gd" id="1_vtuiv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtuiv"]
+radius = 20.09975
+
+[node name="Money" type="Node2D" unique_id=690877731]
+script = ExtResource("1_vtuiv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1872866596]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1198455117]
+shape = SubResource("CircleShape2D_vtuiv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2040459835]
+scale = Vector2(0.5546875, 0.5546875)
+texture = ExtResource("1_mstf0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
