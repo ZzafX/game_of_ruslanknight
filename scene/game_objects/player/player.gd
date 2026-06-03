@@ -23,19 +23,20 @@ func _on_timer_timeout():
 
 	await get_tree().create_timer(0.35).timeout
 
-	$SwordHitbox.monitoring = true
+	$Hitbox.monitoring = true
 
 	await get_tree().create_timer(0.08).timeout
 
-	$SwordHitbox.monitoring = false
+	$Hitbox.monitoring = false
 
 
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "attack":
 		$AnimatedSprite2D.play("idle")
 func _ready():
-	$SwordHitbox.monitoring = false
+	$Hitbox.monitoring = false
 
 
-func _on_sword_hitbox_area_entered(area: Area2D) -> void:
-	area.get_parent().get_node("HealthComponent").take_damage(5)
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area is Hurtbox:
+		area.take_damage(5)

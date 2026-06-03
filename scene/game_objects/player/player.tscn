@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://xk2dib4aytxy" path="res://scene/game_objects/player/Warrior_Idle.png" id="2_5lop3"]
 [ext_resource type="Texture2D" uid="uid://d1pgwdd73bm6o" path="res://scene/game_objects/player/Warrior_Attack1.png" id="2_ajqqa"]
 [ext_resource type="Texture2D" uid="uid://c37a3hwa41x5p" path="res://scene/game_objects/player/Warrior_Run.png" id="3_ajqqa"]
+[ext_resource type="PackedScene" uid="uid://bm6yl3mw4nq7k" path="res://scene/components/Hitbox.tscn" id="6_jxsrc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04bvi"]
 atlas = ExtResource("2_ajqqa")
@@ -203,8 +204,8 @@ radius = 45.01111
 [sub_resource type="CircleShape2D" id="CircleShape2D_nqjai"]
 radius = 20.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajqqa"]
-size = Vector2(63, 88)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vals"]
+size = Vector2(80.5, 102)
 
 [node name="Player" type="CharacterBody2D" unique_id=1028366279 groups=["player"]]
 collision_layer = 0
@@ -237,13 +238,12 @@ position_smoothing_enabled = true
 wait_time = 1.54
 autostart = true
 
-[node name="SwordHitbox" type="Area2D" parent="." unique_id=1981086097]
+[node name="Hitbox" parent="." unique_id=944693571 instance=ExtResource("6_jxsrc")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=106124980]
-position = Vector2(59, -31)
-shape = SubResource("RectangleShape2D_ajqqa")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2105120542]
+position = Vector2(65, -23)
+shape = SubResource("RectangleShape2D_4vals")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_area_entered"]
-[connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

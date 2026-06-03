@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://76anyhu2w601"]
+
+[ext_resource type="Texture2D" uid="uid://we6l44vax21q" path="res://scene/game_objects/Money/Money.png" id="1_2m4r3"]
+[ext_resource type="Script" uid="uid://q5hsbxry3j1o" path="res://scene/meneger/money_counter.gd" id="1_45efv"]
+
+[node name="money_counter" type="CanvasLayer" unique_id=166619309]
+script = ExtResource("1_45efv")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1954484746]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = 38.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1298268828]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=783077544]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_2m4r3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1596128090]
+layout_mode = 2
+text = "0"

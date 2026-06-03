@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c31xvgm8af7rp" path="res://scene/components/health_component.tscn" id="2_hotyu"]
 [ext_resource type="PackedScene" uid="uid://c75423oysr30l" path="res://scene/components/money_drop_component.tscn" id="5_2hsnx"]
 [ext_resource type="PackedScene" uid="uid://y365unu4o4yn" path="res://scene/game_objects/Money/money.tscn" id="5_gih3l"]
+[ext_resource type="PackedScene" uid="uid://dt0f6f386xe8k" path="res://scene/components/Hurtbox.tscn" id="7_k17fe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1mn8"]
 atlas = ExtResource("1_8pqwj")
@@ -121,8 +122,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_8pqwj"]
 radius = 11.34
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbe1x"]
-size = Vector2(31, 41)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mswty"]
+size = Vector2(35.5, 45.5)
 
 [node name="Orc" type="CharacterBody2D" unique_id=1777490479]
 collision_layer = 0
@@ -141,13 +142,14 @@ frame_progress = 0.91284555
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_8pqwj")
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=2076229265]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=394147575]
-position = Vector2(-0.5, -20.5)
-shape = SubResource("RectangleShape2D_kbe1x")
-
 [node name="MoneyDropComponent" parent="." unique_id=1024214107 instance=ExtResource("5_2hsnx")]
 money_scene = ExtResource("5_gih3l")
 
 [node name="HealthComponent" parent="." unique_id=1498217028 instance=ExtResource("2_hotyu")]
+
+[node name="Hurtbox" parent="." unique_id=1049951844 node_paths=PackedStringArray("health_component") instance=ExtResource("7_k17fe")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=14778357]
+position = Vector2(0, -22.25)
+shape = SubResource("RectangleShape2D_mswty")

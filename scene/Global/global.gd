@@ -1,3 +1,3 @@
 extends Node
 
-signal money_collected (experience)
+signal money_collected(amount)

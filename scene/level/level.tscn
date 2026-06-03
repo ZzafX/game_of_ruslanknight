@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://clcv471lv04c6" path="res://scene/game_objects/player/player.tscn" id="2_hm7p5"]
 [ext_resource type="PackedScene" uid="uid://b5ualulc0ukv5" path="res://scene/meneger/arena_time_meneger.tscn" id="2_plauu"]
 [ext_resource type="PackedScene" uid="uid://bs6t51qp7j3s8" path="res://scene/meneger/money_manager.tscn" id="3_n6afj"]
+[ext_resource type="PackedScene" uid="uid://76anyhu2w601" path="res://scene/meneger/money_counter.tscn" id="4_xfrsa"]
 [ext_resource type="PackedScene" uid="uid://y365unu4o4yn" path="res://scene/game_objects/Money/money.tscn" id="6_dcgxc"]
 
 [node name="level" type="Node" unique_id=1830252750]
@@ -42,3 +43,5 @@ position = Vector2(497, 121)
 
 [node name="Money5" parent="." unique_id=2143255764 instance=ExtResource("6_dcgxc")]
 position = Vector2(304, 98)
+
+[node name="money_counter" parent="." unique_id=166619309 instance=ExtResource("4_xfrsa")]
