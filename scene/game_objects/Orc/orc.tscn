@@ -2,11 +2,61 @@
 
 [ext_resource type="Texture2D" uid="uid://cqjhdxmka03ut" path="res://scene/game_objects/Orc/Orc-Idle.png" id="1_8pqwj"]
 [ext_resource type="Script" uid="uid://dny28a27b02mc" path="res://scene/game_objects/Orc/orc.gd" id="1_c10ia"]
+[ext_resource type="Texture2D" uid="uid://dkdj330uapx80" path="res://scene/game_objects/Orc/Orc-Attack01.png" id="2_4noe3"]
 [ext_resource type="Texture2D" uid="uid://d2ifcx8wpnib7" path="res://scene/game_objects/Orc/Orc-Walk.png" id="2_c10ia"]
 [ext_resource type="PackedScene" uid="uid://c31xvgm8af7rp" path="res://scene/components/health_component.tscn" id="2_hotyu"]
+[ext_resource type="Texture2D" uid="uid://bmbctlyei8xx1" path="res://scene/game_objects/Orc/Orc-Attack02.png" id="3_g7udd"]
 [ext_resource type="PackedScene" uid="uid://c75423oysr30l" path="res://scene/components/money_drop_component.tscn" id="5_2hsnx"]
 [ext_resource type="PackedScene" uid="uid://y365unu4o4yn" path="res://scene/game_objects/Money/money.tscn" id="5_gih3l"]
 [ext_resource type="PackedScene" uid="uid://dt0f6f386xe8k" path="res://scene/components/Hurtbox.tscn" id="7_k17fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugxh0"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj8oo"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p121p"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_folsv"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5vld"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvb5w"]
+atlas = ExtResource("2_4noe3")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjyad"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp2hh"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvnlv"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j57lx"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjo1w"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4byh4"]
+atlas = ExtResource("3_g7udd")
+region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1mn8"]
 atlas = ExtResource("1_8pqwj")
@@ -68,6 +118,47 @@ region = Rect2(700, 0, 100, 100)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ugxh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj8oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p121p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_folsv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5vld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvb5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjyad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp2hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvnlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j57lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjo1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4byh4")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d1mn8")
 }, {
 "duration": 1.0,
@@ -123,20 +214,20 @@ animations = [{
 radius = 11.34
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mswty"]
-size = Vector2(35.5, 45.5)
+size = Vector2(25, 29.5)
 
 [node name="Orc" type="CharacterBody2D" unique_id=1777490479]
-collision_layer = 0
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_c10ia")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=429383798]
-position = Vector2(-2, -20)
-scale = Vector2(2.9062505, 2.9062505)
+position = Vector2(0, -10.999999)
+scale = Vector2(1.5751241, 1.5751241)
 sprite_frames = SubResource("SpriteFrames_7k4j0")
-animation = &"run"
-autoplay = "idle"
-frame = 4
-frame_progress = 0.91284555
+animation = &"attack"
+frame_progress = 0.7292451
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408544017]
 position = Vector2(0, -11)
@@ -151,5 +242,5 @@ money_scene = ExtResource("5_gih3l")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=14778357]
-position = Vector2(0, -22.25)
+position = Vector2(0.5, -14.25)
 shape = SubResource("RectangleShape2D_mswty")

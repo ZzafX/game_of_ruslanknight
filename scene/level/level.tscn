@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bs6t51qp7j3s8" path="res://scene/meneger/money_manager.tscn" id="3_n6afj"]
 [ext_resource type="PackedScene" uid="uid://76anyhu2w601" path="res://scene/meneger/money_counter.tscn" id="4_xfrsa"]
 [ext_resource type="PackedScene" uid="uid://y365unu4o4yn" path="res://scene/game_objects/Money/money.tscn" id="6_dcgxc"]
+[ext_resource type="PackedScene" uid="uid://bq3fyrs8x1ko6" path="res://scene/meneger/upgrade_manager.tscn" id="9_gavly"]
+[ext_resource type="Script" uid="uid://cs0ltfbj5p3t5" path="res://resources/upgrades/ability_upgrade.gd" id="10_bgstj"]
+[ext_resource type="PackedScene" uid="uid://c2lv62wymaikg" path="res://scene/UI/upgrade_ui.tscn" id="10_cqsgc"]
+[ext_resource type="Resource" uid="uid://02u3grk17wtx" path="res://resources/upgrades/sword_rate.tres" id="11_nngl3"]
 
 [node name="level" type="Node" unique_id=1830252750]
 
@@ -27,6 +31,7 @@ tile_map_data = PackedByteArray("AAACAAIAAAABAAEAAAACAAMAAAABAAEAAAACAAQAAAABAAE
 tile_set = ExtResource("1_1c01b")
 
 [node name="Player" parent="." unique_id=1028366279 instance=ExtResource("2_hm7p5")]
+y_sort_enabled = false
 position = Vector2(382, 233)
 
 [node name="Money" parent="." unique_id=690877731 instance=ExtResource("6_dcgxc")]
@@ -45,3 +50,13 @@ position = Vector2(497, 121)
 position = Vector2(304, 98)
 
 [node name="money_counter" parent="." unique_id=166619309 instance=ExtResource("4_xfrsa")]
+
+[node name="UpgradeManager" parent="." unique_id=130183591 node_paths=PackedStringArray("arena_time_manager", "upgrade_ui", "player") instance=ExtResource("9_gavly")]
+arena_time_manager = NodePath("../ArenaTimeMeneger")
+upgrades = Array[ExtResource("10_bgstj")]([ExtResource("11_nngl3")])
+upgrade_ui = NodePath("../UpgradeUI")
+player = NodePath("../Player")
+
+[node name="UpgradeUI" parent="." unique_id=117800146 instance=ExtResource("10_cqsgc")]
+process_mode = 3
+visible = false

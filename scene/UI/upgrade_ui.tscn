@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c2lv62wymaikg"]
+
+[ext_resource type="Script" uid="uid://rqwjvfuo7j83" path="res://scene/UI/upgrade_ui.gd" id="1_kyij5"]
+
+[node name="UpgradeUI" type="CanvasLayer" unique_id=117800146]
+script = ExtResource("1_kyij5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=561583243]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.18039216)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2008321957]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1991527672]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer" unique_id=1652958600]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+
+[node name="Button3" type="Button" parent="HBoxContainer" unique_id=203320245]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2

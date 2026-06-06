@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cm1bcbrubmpyu" path="res://scene/game_objects/Money/money.gd" id="1_vtuiv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtuiv"]
-radius = 20.09975
 
 [node name="Money" type="Node2D" unique_id=690877731]
 script = ExtResource("1_vtuiv")
@@ -17,7 +16,7 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_vtuiv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2040459835]
-scale = Vector2(0.5546875, 0.5546875)
+scale = Vector2(0.30797723, 0.30797723)
 texture = ExtResource("1_mstf0")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
