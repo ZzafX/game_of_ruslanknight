@@ -9,7 +9,7 @@ var facing = "right"
 func _physics_process(delta):
 	var movement = movement_vector()
 	var direction = movement.normalized()
-	var speed = max_speed * 0.6 if is_attacking else max_speed
+	var speed = max_speed * 0.3 if is_attacking else max_speed
 	var target_velocity = speed * direction
 	velocity = velocity.lerp(target_velocity, acceleration)
 	move_and_slide()

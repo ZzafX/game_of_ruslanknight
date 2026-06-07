@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://chfpisc5tys2e" path="res://scene/game_objects/player/RUN/run_left.png" id="15_uufy7"]
 [ext_resource type="Texture2D" uid="uid://b818hbprhcygm" path="res://scene/game_objects/player/RUN/run_right.png" id="16_edl67"]
 [ext_resource type="Texture2D" uid="uid://doo2eovwg7skc" path="res://scene/game_objects/player/RUN/run_up.png" id="17_t4lt5"]
+[ext_resource type="PackedScene" uid="uid://c31xvgm8af7rp" path="res://scene/components/health_component.tscn" id="19_ab7uj"]
+[ext_resource type="PackedScene" uid="uid://dt0f6f386xe8k" path="res://scene/components/Hurtbox.tscn" id="20_0nchg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jyiia"]
 atlas = ExtResource("2_lfjyr")
@@ -992,9 +994,12 @@ radius = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vals"]
 size = Vector2(116.69812, 49.18098)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptoag"]
+size = Vector2(23.842783, 34.7505)
+
 [node name="Player" type="CharacterBody2D" unique_id=1028366279 groups=["player"]]
 y_sort_enabled = true
-collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_5lop3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1000579237]
@@ -1024,5 +1029,17 @@ position_smoothing_enabled = true
 position = Vector2(2.3841858e-07, -25.999998)
 scale = Vector2(0.77764744, 1.0471528)
 shape = SubResource("RectangleShape2D_4vals")
+
+[node name="HealthComponent" parent="." unique_id=1498217028 instance=ExtResource("19_ab7uj")]
+
+[node name="Hurtbox" parent="." unique_id=1049951844 node_paths=PackedStringArray("health_component") instance=ExtResource("20_0nchg")]
+collision_layer = 4
+collision_mask = 0
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=113009315]
+position = Vector2(5.9604645e-08, -25.72742)
+scale = Vector2(1.2582424, 1.454516)
+shape = SubResource("RectangleShape2D_ptoag")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

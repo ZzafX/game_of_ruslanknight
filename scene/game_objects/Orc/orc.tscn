@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c75423oysr30l" path="res://scene/components/money_drop_component.tscn" id="5_2hsnx"]
 [ext_resource type="PackedScene" uid="uid://y365unu4o4yn" path="res://scene/game_objects/Money/money.tscn" id="5_gih3l"]
 [ext_resource type="PackedScene" uid="uid://dt0f6f386xe8k" path="res://scene/components/Hurtbox.tscn" id="7_k17fe"]
+[ext_resource type="PackedScene" uid="uid://bm6yl3mw4nq7k" path="res://scene/components/Hitbox.tscn" id="10_g7udd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugxh0"]
 atlas = ExtResource("2_4noe3")
@@ -153,7 +154,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4byh4")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 9.0
 }, {
@@ -216,10 +217,12 @@ radius = 11.34
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mswty"]
 size = Vector2(25, 29.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugxh0"]
+radius = 17.0
+
 [node name="Orc" type="CharacterBody2D" unique_id=1777490479]
 y_sort_enabled = true
-collision_layer = 4
-collision_mask = 5
+collision_layer = 2
 script = ExtResource("1_c10ia")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=429383798]
@@ -227,7 +230,8 @@ position = Vector2(0, -10.999999)
 scale = Vector2(1.5751241, 1.5751241)
 sprite_frames = SubResource("SpriteFrames_7k4j0")
 animation = &"attack"
-frame_progress = 0.7292451
+frame = 11
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1408544017]
 position = Vector2(0, -11)
@@ -244,3 +248,13 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=14778357]
 position = Vector2(0.5, -14.25)
 shape = SubResource("RectangleShape2D_mswty")
+
+[node name="Hitbox" parent="." unique_id=944693571 instance=ExtResource("10_g7udd")]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1787436513]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_ugxh0")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
